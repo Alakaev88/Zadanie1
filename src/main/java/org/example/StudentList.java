@@ -15,6 +15,11 @@ public class StudentList {
     public void setStudents(List<Student> students){
         this.students = students;
     }
+    // Конструктор, принимающий список студентов
+    public StudentList(List<Student> students) {
+        this.students = students;
+    }
+
     @Override
     public String toString(){
         return "StudentLisn{" +"students=" + students+ '}';
