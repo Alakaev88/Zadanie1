@@ -48,5 +48,9 @@ public class Main {
         List<Student> studentsByName = JSONManager.findStudentByName(studentList, searchName);
         System.out.println("Найдено студентов с именем "+ searchName + ": " + studentsByName);
 
+        //добавляем нового студента
+        JSONManager.addStudent(studentList, "NewStudent", localFilePath);
+        System.out.println("Список студентов: "+ studentList);
+
     }
 }
