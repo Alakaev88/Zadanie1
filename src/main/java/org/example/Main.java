@@ -52,5 +52,8 @@ public class Main {
         JSONManager.addStudent(studentList, "NewStudent", localFilePath);
         System.out.println("Список студентов: "+ studentList);
 
+        //удаляем студента с ID 4
+        JSONManager.removeStudentById(studentList, 4, localFilePath);
+        System.out.println("Список студентов: "+ studentList);
     }
 }

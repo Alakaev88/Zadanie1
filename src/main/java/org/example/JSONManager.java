@@ -51,4 +51,15 @@ public class JSONManager {
             System.out.println("Ошибак при сохранении JSON^ "+e.getMessage());
         }
     }
+    //удаление студента
+    public static void removeStudentById(StudentList studentList, int id, String filePath){
+        boolean removed = studentList.getStudents().removeIf(student -> student.getId() == id);
+
+        if (removed) {
+            saveStudentsToFile(studentList, filePath);
+            System.out.println("Удален студент с ID: "+ id);
+        }else {
+            System.out.println("Студент с ID"+ id + "не найден. ");
+        }
+    }
 }
