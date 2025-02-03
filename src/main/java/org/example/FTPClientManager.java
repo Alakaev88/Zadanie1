@@ -1,7 +1,6 @@
 package org.example;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
-import java.nio.file.*;
 import java.io.*;
 
 public class FTPClientManager {
@@ -49,7 +48,7 @@ public class FTPClientManager {
     }
 
     // 4. Метод для скачивания файла с FTP и сохранения на диск
-    public void downloadFileToDisk(String remoteFilePath, String localFilePath) {
+    public void downloadFile(String remoteFilePath, String localFilePath) {
         try (InputStream inputStream = ftpClient.retrieveFileStream(remoteFilePath)) {
             if (inputStream == null) {
                 System.out.println("Ошибка: файл не найден на FTP или нет доступа.");

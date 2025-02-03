@@ -24,7 +24,7 @@ public class JSONManager {
                 .orElse(null); // если не найдено, возвращаем null
     }
     //метод поиска по имени
-    public static List<Student> findStudentByName(StudentList studentList, String name) {
+    public static List<Student> findStudentsByName(StudentList studentList, String name) {
         return studentList.getStudents().stream()
                 .filter(student -> student.getName().equalsIgnoreCase(name))
                 .toList();// возвращаем список студентов с таким именем
