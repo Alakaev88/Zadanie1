@@ -6,9 +6,11 @@ import java.io.*;
 
 public class FTPClientManager {
     private FTPClient ftpClient;
+    // 1. Конструктор: инициализирует FTP-клиент
     public FTPClientManager(){
         this.ftpClient = new FTPClient();
     }
+    // 2. Подключение к FTP-серверу
     public boolean connect(String server, int port,String user, String password){
         try {
             ftpClient.connect(server,port);
@@ -30,7 +32,7 @@ public class FTPClientManager {
             return false;
         }
     }
-    // Метод для загрузки файла на сервер
+    // 3 Метод для загрузки файла на сервер
     public boolean uploadFile(String localFilePath, String remoteFilePath) {
         try (FileInputStream inputStream = new FileInputStream(localFilePath)) {
             boolean success = ftpClient.storeFile(remoteFilePath, inputStream);
@@ -46,7 +48,7 @@ public class FTPClientManager {
         }
     }
 
-    //запись на хард диск
+    // 4. Метод для скачивания файла с FTP и сохранения на диск
     public void downloadFileToDisk(String remoteFilePath, String localFilePath) {
         try (InputStream inputStream = ftpClient.retrieveFileStream(remoteFilePath)) {
             if (inputStream == null) {
@@ -75,7 +77,7 @@ public class FTPClientManager {
             System.out.println("Ошибка при сохранении файла: " + e.getMessage());
         }
     }
-
+    // 5. Метод для вывода текущей рабочей директории на FTP-сервере
     public void printWorkingDirectory() {
         try {
             String currentDir = ftpClient.printWorkingDirectory();
@@ -84,7 +86,7 @@ public class FTPClientManager {
             System.out.println("Ошибка при получении текущей директории: " + e.getMessage());
         }
     }
-
+    // 6. Метод для отключения от FTP-сервера
     public void disconnect(){
         try{
             if (ftpClient.isConnected()){
