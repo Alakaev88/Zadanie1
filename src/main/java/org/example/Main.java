@@ -1,4 +1,5 @@
 package org.example;
+import java.util.List;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -36,6 +37,16 @@ public class Main {
         String localFilePath = "C:/temp/students.json";
         StudentList studentList = JSONManager.readStudentsFromFile(localFilePath);
         System.out.println("Список студентов: "+ studentList);
+
+        //поиск по id
+        int searchId = 2;
+        Student studentById = JSONManager.findStudentById(studentList, searchId);
+        System.out.println("Найден студент по ID "+ searchId + ": "+ studentById);
+
+        //поиск по имени
+        String searchName = "Student1";
+        List<Student> studentsByName = JSONManager.findStudentByName(studentList, searchName);
+        System.out.println("Найдено студентов с именем "+ searchName + ": " + studentsByName);
 
     }
 }
